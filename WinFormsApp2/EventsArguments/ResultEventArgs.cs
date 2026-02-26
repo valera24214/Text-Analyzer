@@ -8,6 +8,6 @@ namespace WinFormsApp2.EventsArguments
 {
     internal abstract class ResultEventArgs : EventArgs
     {
-        protected abstract string descryption {  get; }
+        public abstract string description {  get; }
     }
 }
