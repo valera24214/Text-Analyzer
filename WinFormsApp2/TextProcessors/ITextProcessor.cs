@@ -9,7 +9,10 @@ namespace WinFormsApp2.TextProcessors
 {
     internal interface ITextProcessor
     {
+        string InitialValue {  get; }
+        string Aggregate(string acc, string value);
         event EventHandler<ResultEventArgs> OnProcessed;
         string Process(string[] words);
+        
     }
 }

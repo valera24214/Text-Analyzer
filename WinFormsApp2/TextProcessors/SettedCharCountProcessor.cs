@@ -11,7 +11,9 @@ namespace WinFormsApp2.TextProcessors
     {
         public event EventHandler<ResultEventArgs> OnProcessed;
         private char target;
-        
+
+        public string InitialValue => "0";
+
         public SettedCharCountProcessor(char target)
         {
             this.target = target; 
@@ -27,6 +29,16 @@ namespace WinFormsApp2.TextProcessors
 
             OnProcessed?.Invoke(this, new CountResultArgs(count, $"Количество букв {target} в тексте"));
             return count.ToString();
+        }
+
+        public string Aggregate(string acc, string value)
+        {
+            if (int.TryParse(acc, out int result) && int.TryParse(value, out int next))
+            {
+                return (result + next).ToString();
+            }
+            else
+                throw new ArgumentException("One of this arguments can't be parsed to int");
         }
     }
 }

@@ -17,6 +17,9 @@ namespace WinFormsApp2.TextProcessors
     internal class ExtremumWordProcessor : ITextProcessor
     {
         public ExtremumMode mode { get; } = ExtremumMode.Maximum;
+
+        public string InitialValue { get; } = string.Empty;
+
         public event EventHandler<ResultEventArgs> OnProcessed;
 
         public ExtremumWordProcessor(ExtremumMode mode)
@@ -52,6 +55,30 @@ namespace WinFormsApp2.TextProcessors
             }
 
             OnProcessed?.Invoke(this, new WordResultArgs(result, description));
+
+            return result;
+        }
+
+        public string Aggregate(string acc, string value)
+        {
+            string result = null;
+            switch (mode)
+            {
+                case ExtremumMode.Maximum : 
+                    {
+                        result = acc.Length > value.Length ? acc : value;
+                        break;
+                    }
+                case ExtremumMode.Minimum :
+                    {
+                        result = acc.Length < value.Length ? acc : value;
+                        break;
+                    }
+                default:
+                    {
+                        throw new ArgumentException("Invalid mode value");
+                    }
+            }
 
             return result;
         }
