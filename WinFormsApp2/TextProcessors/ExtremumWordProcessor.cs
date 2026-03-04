@@ -43,7 +43,7 @@ namespace WinFormsApp2.TextProcessors
 
                 case ExtremumMode.Minimum:
                     {
-                        result = words.MinBy(w => w.Length);
+                        result = words.Where(w => w.Length > 1).MinBy(w => w.Length);
                         description = "Самое короткое слово в тексте";
                         break;
                     }
@@ -71,7 +71,10 @@ namespace WinFormsApp2.TextProcessors
                     }
                 case ExtremumMode.Minimum :
                     {
-                        result = acc.Length < value.Length ? acc : value;
+                        if(!acc.Equals(string.Empty))
+                            result = acc.Length < value.Length ? acc : value;
+                        else 
+                            result = value;
                         break;
                     }
                 default:

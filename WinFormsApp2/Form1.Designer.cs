@@ -35,6 +35,8 @@
             numericUpDown2 = new NumericUpDown();
             textBox1 = new TextBox();
             button1 = new Button();
+            label3 = new Label();
+            textBox2 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
@@ -48,11 +50,12 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(309, 23);
             comboBox1.TabIndex = 0;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 53);
+            label1.Location = new Point(12, 60);
             label1.Name = "label1";
             label1.Size = new Size(116, 30);
             label1.TabIndex = 1;
@@ -60,7 +63,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(179, 57);
+            numericUpDown1.Location = new Point(179, 64);
             numericUpDown1.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 30, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
@@ -71,7 +74,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 105);
+            label2.Location = new Point(12, 115);
             label2.Name = "label2";
             label2.Size = new Size(143, 30);
             label2.TabIndex = 3;
@@ -79,8 +82,8 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(179, 103);
-            numericUpDown2.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown2.Location = new Point(179, 119);
+            numericUpDown2.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(120, 23);
@@ -99,7 +102,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 212);
+            button1.Location = new Point(12, 210);
             button1.Name = "button1";
             button1.Size = new Size(309, 23);
             button1.TabIndex = 6;
@@ -107,11 +110,31 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 170);
+            label3.Name = "label3";
+            label3.Size = new Size(90, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Искомая буква";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(179, 166);
+            textBox2.MaxLength = 1;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(120, 23);
+            textBox2.TabIndex = 8;
+            textBox2.Text = "a";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox2);
+            Controls.Add(label3);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(numericUpDown2);
@@ -136,5 +159,7 @@
         private NumericUpDown numericUpDown2;
         private TextBox textBox1;
         private Button button1;
+        private Label label3;
+        private TextBox textBox2;
     }
 }
